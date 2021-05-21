@@ -1,18 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using Vector2 = UnityEngine.Vector2;
 
 public class Paddle : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    //Shown in Inspector
+    [SerializeField] private string inputAxis;
+    [SerializeField] private float speed;
+    
+    private void FixedUpdate()
     {
-        
+        Move();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Move()
     {
-        
+        float translate = Input.GetAxisRaw(inputAxis) * speed * Time.deltaTime;
+        transform.Translate(0f, translate, 0f);
     }
 }
