@@ -36,6 +36,7 @@ public class Ball : MonoBehaviour
             vel.y = (velocity.y / 2) + (other.collider.attachedRigidbody.velocity.y / 3);
             velocity = vel;
             rb.velocity = velocity;
+            GameManager.Instance.AddToCombo();
         }
     }
 }
